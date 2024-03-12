@@ -1,0 +1,20 @@
+
+{{!-- parte lógica da minha página onde vou por as funções que criei no javascript --}}
+<h1>Olá {{user.name}} {{user.suname}} , seja bem vindo</h1>
+
+{{!-- teste lógico --}}
+{{#if auth}}
+<p>
+    Você está autenticado no sistema, <a href="/dashboard">clique aqui</a>
+    para acessar área de membros
+</p>
+{{/if}}
+
+{{!-- parte lógica da aprovação na const approved --}}
+{{#if approved}}
+<p>Parabéns , o seu cadastro está aprovado!</p>
+
+{{else}}
+<p>O seu cadastro precissa de aprovação</p>
+
+{{/if}}
