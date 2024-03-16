@@ -36,7 +36,7 @@ app.get('/books', function(req , res){
 
 })
 
-
+// criando rota da selcão dos livros
 app.get('/books/:id', function(req ,res){
     const id = req.params.id
     const query = `SELECT * FROM books WHERE id =${id}`
@@ -50,6 +50,24 @@ app.get('/books/:id', function(req ,res){
         res.render('book' , { book })
      })
 })
+
+// rota de edição de titulo e numero de páginas do livro
+app.post('/books/updatebook', function (req , res){
+const id = req.body.id
+const title = req.body.title
+const pageqty = req.body.pageqty
+
+const query = `UPDATE books SET title = '${title}, pageqty = '${pageqty} WHERE id ${id}'`
+
+conn.query(query, function (err){
+    if(err) {
+     console.log(err)
+    }
+    res.render(`/books/edit/${id}`)
+ })
+
+})
+
 
 // criando uma conexão com mysql e chamando o sql
 const conn = mysql.createConnection({
@@ -71,7 +89,7 @@ app.post('/books/insertbook', function( req , res){
             console.log(err)
         }
 
-        res.redirect('/')
+        res.render('/')
     })
 })
 

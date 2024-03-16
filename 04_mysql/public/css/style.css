@@ -36,3 +36,13 @@ h1{
 .bold{
     font-weight: bold;
 }
+
+#book-page{
+    padding: 2em;
+}
+#book-page .container{
+    text-align: center;
+}
+.actions{
+    margin-top:1em;
+}
